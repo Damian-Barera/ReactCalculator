@@ -1,8 +1,13 @@
 import './ClearButton.css';
 
-const ClearButton = () => {
+const ClearButton = ({ eraseInput }) => {
+
+    const clearDisplay = () => {
+        eraseInput('');
+    }
+
     return (
-        <button className='ClearButton'> Clear </button>
+        <button className='ClearButton' onClick={() => clearDisplay()}> Clear </button>
     )
 };
 

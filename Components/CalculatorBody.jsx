@@ -1,5 +1,4 @@
-import './CalculatorBody.css'
-import CalculatorRow from './CalculatorRow';
+import './CalculatorBody.css';
 import CalculatorDisplay from './CalculatorDisplay';
 import RowButton from './RowButton';
 import ClearButton from './ClearButton';
@@ -13,35 +12,39 @@ const CalculatorBody = () => {
         setInput(input + value);
     };
 
+    const eraseInput = () => {
+        setInput('');
+    }
+
 
     return (
         <div className='CalculatorBody'>
             <CalculatorDisplay input = {input} />
-            <CalculatorRow>
-                <RowButton value = {1} onClick = {addInput}>  </RowButton>
-                <RowButton value = {2} onClick = {addInput}>  </RowButton>
-                <RowButton value = {3} onClick = {addInput}>  </RowButton>
-                <RowButton value = {'+'}>  </RowButton>
-            </CalculatorRow>
-            <CalculatorRow>
-                <RowButton value = {4}>  </RowButton>
-                <RowButton value = {5}>  </RowButton>
-                <RowButton value = {6}>  </RowButton>
-                <RowButton value = {'-'}>  </RowButton>
-            </CalculatorRow>
-            <CalculatorRow>
-                <RowButton value = {7}>  </RowButton>
-                <RowButton value = {8}>  </RowButton>
-                <RowButton value = {9}>  </RowButton>
-                <RowButton value = {'*'}>  </RowButton>
-            </CalculatorRow>
-            <CalculatorRow>
-                <RowButton value = {'='}>  </RowButton>
-                <RowButton value = {0}>  </RowButton>
-                <RowButton value = {'.'}>  </RowButton>
-                <RowButton value = {'/'}>  </RowButton>
-            </CalculatorRow>
-            <ClearButton />
+            <div>
+                <RowButton value = {1} addInput = {addInput}>  </RowButton>
+                <RowButton value = {2} addInput = {addInput}>  </RowButton>
+                <RowButton value = {3} addInput = {addInput}>  </RowButton>
+                <RowButton value = '+' addInput={addInput}>  </RowButton>
+            </div>
+            <div>
+                <RowButton value = {4} addInput = {addInput}>  </RowButton>
+                <RowButton value = {5} addInput = {addInput}>  </RowButton>
+                <RowButton value = {6} addInput = {addInput}>  </RowButton>
+                <RowButton value = {'-'} addInput={addInput}>  </RowButton>
+            </div>
+            <div>
+                <RowButton value = {7} addInput = {addInput}>  </RowButton>
+                <RowButton value = {8} addInput = {addInput}>  </RowButton>
+                <RowButton value = {9} addInput = {addInput}>  </RowButton>
+                <RowButton value = {'*'} addInput={addInput}>  </RowButton>
+            </div>
+            <div>
+                <RowButton value = {'='} addInput = {addInput}>  </RowButton>
+                <RowButton value = {0} addInput = {addInput}>  </RowButton>
+                <RowButton value = {'.'} addInput = {addInput}>  </RowButton>
+                <RowButton value = {'/'} addInput={addInput}>  </RowButton>
+            </div>
+            <ClearButton eraseInput = {eraseInput} />
       </div>
     )
 };
