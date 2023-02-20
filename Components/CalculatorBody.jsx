@@ -3,6 +3,7 @@ import CalculatorDisplay from './CalculatorDisplay';
 import RowButton from './RowButton';
 import ClearButton from './ClearButton';
 import { useState } from 'react';
+import { evaluate } from 'mathjs';
 
 const CalculatorBody = () => {
 
@@ -14,6 +15,15 @@ const CalculatorBody = () => {
 
     const eraseInput = () => {
         setInput('');
+    }
+
+    const result = () => {
+        if(input) {
+            setInput(evaluate(input));
+        }
+        else{
+            alert('Por favor, ingrese valores para que puedan ser calculados.')
+        }
     }
 
 
@@ -39,7 +49,7 @@ const CalculatorBody = () => {
                 <RowButton value = {'*'} addInput={addInput}>  </RowButton>
             </div>
             <div>
-                <RowButton value = {'='} addInput = {addInput}>  </RowButton>
+                <RowButton value = {'='} addInput = {result}>  </RowButton>
                 <RowButton value = {0} addInput = {addInput}>  </RowButton>
                 <RowButton value = {'.'} addInput = {addInput}>  </RowButton>
                 <RowButton value = {'/'} addInput={addInput}>  </RowButton>
